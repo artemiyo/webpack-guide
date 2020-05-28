@@ -5,12 +5,11 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: {
-    app: "./src/index.js",
-    print: "./src/print.js",
+    index: "./src/index.js",
   },
   devtool: "inline-source-map",
   devServer: {
-    contentBase: './dist'
+    contentBase: "./dist",
   },
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
@@ -20,7 +19,8 @@ module.exports = {
   ],
   output: {
     filename: "[name].bundle.js",
+    chunkFilename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: '/'
+    publicPath: "/",
   },
 };
